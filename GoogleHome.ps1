@@ -18,13 +18,13 @@ Start-Sleep -Seconds $SleepTime
 $shutdown = Test-Path -Path "$SearchDirectory\shutdown.txt"
 $reboot = Test-Path -Path "$SearchDirectory\reboot.txt"
 $hibernate = Test-Path -Path "$SearchDirectory\hibernate.txt"
-$pause = Test-Path -Path "$SearchDirectory\pause.txt"
-#$louder = Test-Path -Path "$SearchDirectory\louder.txt"
-#$quieter = Test-Path -Path "$SearchDirectory\quieter.txt"
+#$pause = Test-Path -Path "$SearchDirectory\pause.txt"
+$louder = Test-Path -Path "$SearchDirectory\louder.txt"
+$quieter = Test-Path -Path "$SearchDirectory\quieter.txt"
 #$soundcloud = Test-Path -Path "$SearchDirectory\soundcloud.txt"
 }
-Until ($shutdown -eq $True -or $reboot -eq $True -or $hibernate -eq $True -or $pause -eq $True )
-#-or $louder -eq $True -or $quieter -eq $True -or $soundcloud -eq $True)
+Until ($shutdown -eq $True -or $reboot -eq $True -or $hibernate -eq $True -or $louder -eq $True -or $quieter -eq $True)
+#-or $pause -eq $True -or $soundcloud -eq $True)
 
 #Shutdown
 if ($shutdown -eq $True) {
