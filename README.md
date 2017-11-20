@@ -6,6 +6,8 @@ Here are multiple scripts &amp; Ideas to control your Windows PC with your Googl
 Some Main Features are:
 - Shutdown/Reboot/Hibernate the PC
 - Change Volume of PC
+
+Planned features/Work in Progress:
 - Open Soundcloud/Netflix
 - Pause Soundcloud/Netflix/YouTube/...
 - Skip Track on Soundcloud
@@ -36,6 +38,5 @@ If you have further issues open a new Issue on GitHub!
 
 ## Credits
 Credits go to 
-- Hylke Jellema from YouTube for his base script and his instruction video:
-https://www.youtube.com/watch?v=gOt1IyEAIxA
+- Hylke Jellema from YouTube for his base script and his instruction video: https://www.youtube.com/watch?v=gOt1IyEAIxA
 - NirCMD for making CMD much more comfortable
