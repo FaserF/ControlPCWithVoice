@@ -35,5 +35,7 @@ A: Did you entered the following command in Powershell Administrator? "set-execu
 If you have further issues open a new Issue on GitHub!
 
 ## Credits
-Credits go to Hylke Jellema from YouTube for his base script and his instruction video:
+Credits go to 
+- Hylke Jellema from YouTube for his base script and his instruction video:
 https://www.youtube.com/watch?v=gOt1IyEAIxA
+- NirCMD for making CMD much more comfortable

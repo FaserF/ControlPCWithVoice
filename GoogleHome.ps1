@@ -21,9 +21,9 @@ $hibernate = Test-Path -Path "$SearchDirectory\hibernate.txt"
 #$pause = Test-Path -Path "$SearchDirectory\pause.txt"
 $louder = Test-Path -Path "$SearchDirectory\louder.txt"
 $quieter = Test-Path -Path "$SearchDirectory\quieter.txt"
-#$soundcloud = Test-Path -Path "$SearchDirectory\soundcloud.txt"
+$soundcloud = Test-Path -Path "$SearchDirectory\soundcloud.txt"
 }
-Until ($shutdown -eq $True -or $reboot -eq $True -or $hibernate -eq $True -or $louder -eq $True -or $quieter -eq $True)
+Until ($shutdown -eq $True -or $reboot -eq $True -or $hibernate -eq $True -or $louder -eq $True -or $quieter -eq $True -or $soundcloud -eq $True)
 #-or $pause -eq $True -or $soundcloud -eq $True)
 
 #Shutdown
@@ -47,7 +47,8 @@ if ($hibernate -eq $True) {
 #Removes the hibernate file to prevent an imediate hibernate when the computer starts back up
 Remove-Item -Path "$SearchDirectory\hibernate.txt"
 #Hibernates the computer forcefully but gracefully
-start C:\Scripts\hibernate.cmd
+shutdown.exe /h
+.\GoogleHome.ps1
 }
 
 #Volume Up
@@ -55,20 +56,22 @@ if ($louder -eq $True) {
 #Removes the Volume file to prevent changing volume on startup
 Remove-Item -Path "$SearchDirectory\louder.txt"
 #Starting volume up
-start C:\Scripts\volume\louder.cmd
+C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+C:\Scripts\nircmd\nircmd changesysvolume 6500
 .\GoogleHome.ps1
 }
 
-#Volume Up
+#Volume Down
 if ($quieter -eq $True) {
 #Removes the Volume file to prevent changing volume on startup
 Remove-Item -Path "$SearchDirectory\quieter.txt"
 #Starting volume down
-start C:\Scripts\volume\quieter.cmd
+C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+C:\Scripts\nircmd\nircmd changesysvolume -6500
 .\GoogleHome.ps1
 }
 
-#Volume Up
+#Pause
 if ($pause -eq $True) {
 #Removes the Pause file to preventing space on startup
 Remove-Item -Path "$SearchDirectory\pause.txt"
@@ -82,7 +85,10 @@ if ($soundcloud -eq $True) {
 #Removes the soundcloud file to prevent starting sc on startup
 Remove-Item -Path "$SearchDirectory\soundcloud.txt"
 #Starts the sc start script
-start C:\Scripts\browser\soundcloud.cmd
+C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+start https://soundcloud.com
+timeout /T 3
+start C:\Scripts\Browser\soundcloud.vbs
 .\GoogleHome.ps1
 }
 
