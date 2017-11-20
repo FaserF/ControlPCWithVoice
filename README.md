@@ -27,9 +27,13 @@ See a example config here: http://prntscr.com/hcxfer (the file names are the fol
 - Reboot your PC
 - Now test it by saying "Okay Google ..."
 
-## Probleme / Q&A
+## Issues / Q&A
 
 Q: Dropbox has created the file.txt but my pc doesnt do anything -_-
 A: Did you entered the following command in Powershell Administrator? "set-executionpolicy -executionpolicy unrestricted"
 
 If you have further issues open a new Issue on GitHub!
+
+## Credits
+Credits go to Hylke Jellema from YouTube for his base script and his instruction video:
+https://www.youtube.com/watch?v=gOt1IyEAIxA
