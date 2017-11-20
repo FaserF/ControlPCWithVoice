@@ -1,5 +1,5 @@
 #CREDITS Go to: Hylke Jellema (https://www.youtube.com/watch?v=gOt1IyEAIxA&feature=youtu.be)
-#Script optimized by FaserF (https://github.com/FaserF)
+#Script optimized & new features by FaserF (https://github.com/FaserF/GoogleHomeWithWindows)
 # -------------------------------------------------------------------------------------------
 #IMPORTANT: If the script wont work insert the following line in powershell (Administrator): 
 #set-executionpolicy -executionpolicy unrestricted
@@ -17,9 +17,12 @@ Start-Sleep -Seconds $SleepTime
 $shutdown = Test-Path -Path "$SearchDirectory\shutdown.txt"
 $reboot = Test-Path -Path "$SearchDirectory\reboot.txt"
 $hibernate = Test-Path -Path "$SearchDirectory\hibernate.txt"
+$louder = Test-Path -Path "$SearchDirectory\louder.txt"
+$quieter = Test-Path -Path "$SearchDirectory\quieter.txt"
+$pause = Test-Path -Path "$SearchDirectory\pause.txt"
 $soundcloud = Test-Path -Path "$SearchDirectory\soundcloud.txt"
 }
-Until ($shutdown -eq $True -or $reboot -eq $True -or $hibernate -eq $True)
+Until ($shutdown -eq $True -or $reboot -eq $True -or $hibernate -eq $True -or $louder -eq $True -or $quieter -eq $True -or $pause -eq $True -or $soundcloud -eq $True)
 
 #Shutdown
 if ($shutdown -eq $True) {
@@ -59,6 +62,14 @@ if ($quieter -eq $True) {
 Remove-Item -Path "$SearchDirectory\quieter.txt"
 #Starting volume down
 start C:\Scripts\volume\quieter.cmd
+}
+
+#Volume Up
+if ($pause -eq $True) {
+#Removes the Pause file to preventing space on startup
+Remove-Item -Path "$SearchDirectory\pause.txt"
+#Pausing
+start C:\Scripts\pause.vbs
 }
 
 #Soundcloud
