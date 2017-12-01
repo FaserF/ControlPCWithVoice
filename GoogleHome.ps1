@@ -1,5 +1,5 @@
 #Control PC by Voice - V0.2
-#Should work with Alexa and Google Assistant
+#Will work with Alexa and Google Assistant
 # -------------------------------------------------------------------------------------------
 #CREDITS Go to: Hylke Jellema (https://www.youtube.com/watch?v=gOt1IyEAIxA&feature=youtu.be)
 #Script optimized & new features by FaserF (https://github.com/FaserF/GoogleHomeWithWindows)
@@ -12,8 +12,8 @@ cd C:\Scripts
 $SearchDirectory = "C:\Users\fabia\Dropbox\IFTTT"
 $SleepTime = 5
 
-#Sleep for 1 minute before being active (to prevent boot loops if the file for some reason is not deleted)
-#Start-Sleep -Seconds 60
+#Sleep for 30 Seconds before being active (to prevent boot loops if the file for some reason is not deleted)
+Start-Sleep -Seconds 30
 
 #Loop checking to see if the file has been created and once it has it continues on. Sleep in the look to prevent CPU pegging
 Do {
