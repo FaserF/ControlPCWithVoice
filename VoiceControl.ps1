@@ -2,7 +2,7 @@
 #Will work with Alexa and Google Assistant
 # -------------------------------------------------------------------------------------------
 #CREDITS Go to: Hylke Jellema (https://www.youtube.com/watch?v=gOt1IyEAIxA&feature=youtu.be)
-#Script optimized & new features by FaserF (https://github.com/FaserF/GoogleHomeWithWindows)
+#Script optimized & new features by FaserF (https://github.com/FaserF/ControlPCWithVoice)
 # -------------------------------------------------------------------------------------------
 #IMPORTANT: If the script wont work insert the following line in powershell (Administrator): 
 #set-executionpolicy -executionpolicy unrestricted
@@ -51,7 +51,7 @@ if ($hibernate -eq $True) {
 Remove-Item -Path "$SearchDirectory\hibernate.txt"
 #Hibernates the computer forcefully but gracefully
 shutdown.exe /h
-.\GoogleHome.ps1
+.\VoiceControl.ps1
 }
 
 #Volume Up
@@ -61,7 +61,7 @@ Remove-Item -Path "$SearchDirectory\louder.txt"
 #Starting volume up
 C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
 C:\Scripts\nircmd\nircmd changesysvolume 6500
-.\GoogleHome.ps1
+.\VoiceControl.ps1
 }
 
 #Volume Down
@@ -71,7 +71,7 @@ Remove-Item -Path "$SearchDirectory\quieter.txt"
 #Starting volume down
 C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
 C:\Scripts\nircmd\nircmd changesysvolume -6500
-.\GoogleHome.ps1
+.\VoiceControl.ps1
 }
 
 #Pause
@@ -80,7 +80,7 @@ if ($pause -eq $True) {
 Remove-Item -Path "$SearchDirectory\pause.txt"
 #Pausing
 start C:\Scripts\pause.vbs
-.\GoogleHome.ps1
+.\VoiceControl.ps1
 }
 
 #Soundcloud
@@ -92,7 +92,7 @@ C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
 start https://soundcloud.com
 timeout /T 3
 start C:\Scripts\Browser\soundcloud.vbs
-.\GoogleHome.ps1
+.\VoiceControl.ps1
 }
 
 #Soundcloud Next Track
@@ -101,5 +101,5 @@ if ($soundcloud -eq $True) {
 Remove-Item -Path "$SearchDirectory\soundcloud-next.txt"
 #Starts the sc start script
 start C:\Scripts\browser\soundcloud-next.vbs
-.\GoogleHome.ps1
+.\VoiceControl.ps1
 }
