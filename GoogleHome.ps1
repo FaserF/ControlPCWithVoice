@@ -1,3 +1,6 @@
+#Control PC by Voice - V0.2
+#Should work with Alexa and Google Assistant
+# -------------------------------------------------------------------------------------------
 #CREDITS Go to: Hylke Jellema (https://www.youtube.com/watch?v=gOt1IyEAIxA&feature=youtu.be)
 #Script optimized & new features by FaserF (https://github.com/FaserF/GoogleHomeWithWindows)
 # -------------------------------------------------------------------------------------------
