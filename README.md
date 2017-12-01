@@ -7,10 +7,10 @@ Here are multiple scripts &amp; Ideas to control your Windows PC with your Alexa
 Some Main Features are:
 - Shutdown/Reboot/Hibernate the PC
 - Change Volume of PC
-
-Planned features/Work in Progress:
 - Open Soundcloud/Netflix
 - Pause Soundcloud/Netflix/YouTube/...
+
+Planned features/Work in Progress:
 - Skip Track on Soundcloud
 - Close Tab on Chrome
 
@@ -29,6 +29,7 @@ See a example config here: http://prntscr.com/hcxfer (the file names are the fol
 - Open task scheduler on windows configure as in this video: https://youtu.be/gOt1IyEAIxA?t=2m8s (important is in the last step to name it in arguments "C:\Scripts\VoiceControl.ps1"
 - Reboot your PC
 - Now test it by saying "Okay Google ..." or "Alexa ..."
+- Add more features to IFTTT so your Voice can control it
 
 ## Issues / Q&A
 
