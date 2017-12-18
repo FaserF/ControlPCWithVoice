@@ -1,19 +1,19 @@
-#Control PC by Voice - V1.1
+#Control PC by Voice - V1.2
 #Will work with Alexa and Google Assistant
 # -------------------------------------------------------------------------------------------
 #CREDITS Go to: Hylke Jellema (https://www.youtube.com/watch?v=gOt1IyEAIxA&feature=youtu.be)
-#Script optimized & new features by FaserF (https://github.com/FaserF/ControlPCWithVoice)
+#Script optimized & new features added by FaserF (https://github.com/FaserF/ControlPCWithVoice)
 # -------------------------------------------------------------------------------------------
 #IMPORTANT: If the script wont work insert the following line in powershell (Administrator): 
 #set-executionpolicy -executionpolicy unrestricted
+#Issues? Open a Ticket here: https://github.com/FaserF/ControlPCWithVoice/issues
 # -------------------------------------------------------------------------------------------
 
+cd C:\Scripts
 #Declaring Variables
-$ScriptDirectory = "C:\Scripts"
-$SearchDirectory = "C:\Users\fabia\Dropbox\IFTTT"
+#Edit %username% to your Username (example: fabian )
+$SearchDirectory = "C:\Users\%username%\Dropbox\IFTTT"
 $SleepTime = 5
-
-cd $ScriptDirectory
 
 #Sleep for 30 Seconds before being active (to prevent boot loops if the file for some reason is not deleted)
 Start-Sleep -Seconds 30
@@ -28,10 +28,11 @@ $pause = Test-Path -Path "$SearchDirectory\pause.txt"
 $louder = Test-Path -Path "$SearchDirectory\louder.txt"
 $quieter = Test-Path -Path "$SearchDirectory\quieter.txt"
 $netflix = Test-Path -Path "$SearchDirectory\netflix.txt"
-$soundcloud = Test-Path -Path "$SearchDirectory\soundcloud.txt"
+#$soundcloud = Test-Path -Path "$SearchDirectory\soundcloud.txt"
+#$soundcloud-next = Test-Path -Path "$SearchDirectory\soundcloud-next.txt"
 }
-Until ($shutdown -eq $True -or $reboot -eq $True -or $hibernate -eq $True -or $louder -eq $True -or $quieter -eq $True -or $soundcloud -eq $True -or $pause -eq $True -or $netflix -eq $True)
-#-or $soundcloud-next -eq $True)
+Until ($shutdown -eq $True -or $reboot -eq $True -or $hibernate -eq $True -or $louder -eq $True -or $quieter -eq $True -or $pause -eq $True -or $netflix -eq $True)
+#-or $soundcloud -eq $True -or $pause -eq $True -or $soundcloud-next -eq $True)
 
 #Shutdown
 if ($shutdown -eq $True) {
@@ -54,8 +55,8 @@ if ($hibernate -eq $True) {
 #Removes the hibernate file to prevent an imediate hibernate when the computer starts back up
 Remove-Item -Path "$SearchDirectory\hibernate.txt"
 #Hibernates the computer forcefully but gracefully
-shutdown.exe /h
 .\VoiceControl.ps1
+shutdown.exe /h
 }
 
 #Volume Up
@@ -63,8 +64,8 @@ if ($louder -eq $True) {
 #Removes the Volume file to prevent changing volume on startup
 Remove-Item -Path "$SearchDirectory\louder.txt"
 #Starting volume up
-cmd $ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
-cmd $ScriptDirectory\nircmd\nircmd changesysvolume 6500
+C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+C:\Scripts\nircmd\nircmd changesysvolume 6500
 .\VoiceControl.ps1
 }
 
@@ -73,8 +74,8 @@ if ($quieter -eq $True) {
 #Removes the Volume file to prevent changing volume on startup
 Remove-Item -Path "$SearchDirectory\quieter.txt"
 #Starting volume down
-cmd $ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
-cmd $ScriptDirectory\nircmd\nircmd changesysvolume -6500
+C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+C:\Scripts\nircmd\nircmd changesysvolume -6500
 .\VoiceControl.ps1
 }
 
@@ -83,7 +84,7 @@ if ($pause -eq $True) {
 #Removes the Pause file to preventing space on startup
 Remove-Item -Path "$SearchDirectory\pause.txt"
 #Pausing
-cmd /C cscript $ScriptDirectory\pause.vbs
+cmd /C cscript C:\Scripts\pause.vbs
 .\VoiceControl.ps1
 }
 
@@ -92,7 +93,7 @@ if ($netflix -eq $True) {
 #Removes the netflix file to prevent starting sc on startup
 Remove-Item -Path "$SearchDirectory\netflix.txt"
 #Starts the sc start script
-cmd $ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
 start https://www.netflix.com/browse
 timeout /T 3
 cmd /C cscript $ScriptDirectory\browser\netflix.vbs
@@ -104,10 +105,10 @@ if ($soundcloud -eq $True) {
 #Removes the soundcloud file to prevent starting sc on startup
 Remove-Item -Path "$SearchDirectory\soundcloud.txt"
 #Starts the sc start script
-cmd $ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
 start https://soundcloud.com
 timeout /T 3
-cmd /C cscript $ScriptDirectory\browser\soundcloud.vbs
+cmd /C cscript C:\Scripts\Browser\soundcloud.vbs
 .\VoiceControl.ps1
 }
 
@@ -116,6 +117,6 @@ if ($soundcloud-next -eq $True) {
 #Removes the soundcloud file to prevent starting sc on startup
 Remove-Item -Path "$SearchDirectory\soundcloud-next.txt"
 #Starts the sc start script
-start $ScriptDirectory\browser\soundcloud-next.vbs
+cmd /C cscript C:\Scripts\browser\soundcloud-next.vbs
 .\VoiceControl.ps1
 }
