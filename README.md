@@ -37,6 +37,9 @@ See a example config here: http://prntscr.com/hcxfer (the file names are the fol
 Q: Dropbox has created the file.txt but my pc doesnt do anything -_-
 A: Did you entered the following command in Powershell Administrator? "set-executionpolicy -executionpolicy unrestricted"
 
+Q: I am getting an error that the password is wrong for the task scheduled script on every reboot
+A: Have you entered the correct password in task scheduler? Try readding the task in task scheduler.
+
 If you have further issues open a new Issue on GitHub!
 
 ## Credits
