@@ -23,6 +23,7 @@ and this all is being archieved via your Voice
 - Extract it and copy all files within to C:\Scripts (It is important to use this path! Other paths wont work!)
 - Open Powershell in Administrator Mode and type in "set-executionpolicy -executionpolicy unrestricted" (this is to make our PS file executable on newer Windows Versions!)
 - Open the Powershell Script "VoiceControl.ps1" and modify it as you want and need
+- Edit VoiceControl.ps1 line 15 ($SearchDirectory = "C:\Users\%username%\Dropbox\IFTTT") and edit %username% to your username
 - Open IFTTT in your Browser and configure it to your needs (important is here to use the correct file name)
 See a example config here: http://prntscr.com/hcxfer (the file names are the following: "shutdown", "reboot", "hibernate", "soundcloud", "louder", "quieter", and so on)
 - Now say "Okay Google (your sentence from IFTTT here)" and see if it responds. Your PC wont do anything right now, thats correct!
