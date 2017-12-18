@@ -1,4 +1,4 @@
-#Control PC by Voice - V1.0
+#Control PC by Voice - V1.1
 #Will work with Alexa and Google Assistant
 # -------------------------------------------------------------------------------------------
 #CREDITS Go to: Hylke Jellema (https://www.youtube.com/watch?v=gOt1IyEAIxA&feature=youtu.be)
@@ -63,8 +63,8 @@ if ($louder -eq $True) {
 #Removes the Volume file to prevent changing volume on startup
 Remove-Item -Path "$SearchDirectory\louder.txt"
 #Starting volume up
-$ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
-$ScriptDirectory\nircmd\nircmd changesysvolume 6500
+cmd $ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+cmd $ScriptDirectory\nircmd\nircmd changesysvolume 6500
 .\VoiceControl.ps1
 }
 
@@ -73,8 +73,8 @@ if ($quieter -eq $True) {
 #Removes the Volume file to prevent changing volume on startup
 Remove-Item -Path "$SearchDirectory\quieter.txt"
 #Starting volume down
-$ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
-$ScriptDirectory\nircmd\nircmd changesysvolume -6500
+cmd $ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+cmd $ScriptDirectory\nircmd\nircmd changesysvolume -6500
 .\VoiceControl.ps1
 }
 
@@ -92,7 +92,7 @@ if ($netflix -eq $True) {
 #Removes the netflix file to prevent starting sc on startup
 Remove-Item -Path "$SearchDirectory\netflix.txt"
 #Starts the sc start script
-$ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+cmd $ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
 start https://www.netflix.com/browse
 timeout /T 3
 cmd /C cscript $ScriptDirectory\browser\netflix.vbs
@@ -104,7 +104,7 @@ if ($soundcloud -eq $True) {
 #Removes the soundcloud file to prevent starting sc on startup
 Remove-Item -Path "$SearchDirectory\soundcloud.txt"
 #Starts the sc start script
-$ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
+cmd $ScriptDirectory\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
 start https://soundcloud.com
 timeout /T 3
 cmd /C cscript $ScriptDirectory\browser\soundcloud.vbs
