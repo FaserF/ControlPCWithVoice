@@ -1,4 +1,4 @@
-#Control PC by Voice - V1.3
+#Control PC by Voice - V0.3
 #Will work with Alexa and Google Assistant
 # -------------------------------------------------------------------------------------------
 #CREDITS Go to: Hylke Jellema (https://www.youtube.com/watch?v=gOt1IyEAIxA&feature=youtu.be)
@@ -11,8 +11,7 @@
 
 cd C:\Scripts
 #Declaring Variables
-#Edit %username% to match your Username
-$SearchDirectory = "C:\Users\%username%\Dropbox\IFTTT"
+$SearchDirectory = "C:\Users\fabia\Dropbox\IFTTT"
 $SleepTime = 5
 
 #Sleep for 30 Seconds before being active (to prevent boot loops if the file for some reason is not deleted)
@@ -24,15 +23,13 @@ Start-Sleep -Seconds $SleepTime
 $shutdown = Test-Path -Path "$SearchDirectory\shutdown.txt"
 $reboot = Test-Path -Path "$SearchDirectory\reboot.txt"
 $hibernate = Test-Path -Path "$SearchDirectory\hibernate.txt"
-$pause = Test-Path -Path "$SearchDirectory\pause.txt"
+#$pause = Test-Path -Path "$SearchDirectory\pause.txt"
 $louder = Test-Path -Path "$SearchDirectory\louder.txt"
 $quieter = Test-Path -Path "$SearchDirectory\quieter.txt"
 #$soundcloud = Test-Path -Path "$SearchDirectory\soundcloud.txt"
-#$soundcloud-next = Test-Path -Path "$SearchDirectory\soundcloud-next.txt"
-#$netflix = Test-Path -Path "$SearchDirectory\netflix.txt"
 }
-Until ($shutdown -eq $True -or $reboot -eq $True -or $hibernate -eq $True -or $louder -eq $True -or $quieter -eq $True -or $pause -eq $True)
-#-or $soundcloud -eq $True -or $soundcloud-next -eq $True)
+Until ($shutdown -eq $True -or $reboot -eq $True -or $hibernate -eq $True -or $louder -eq $True -or $quieter -eq $True)
+#-or $pause -eq $True -or $soundcloud-next -eq $True -or $soundcloud -eq $True)
 
 #Shutdown
 if ($shutdown -eq $True) {
@@ -55,7 +52,7 @@ if ($hibernate -eq $True) {
 #Removes the hibernate file to prevent an imediate hibernate when the computer starts back up
 Remove-Item -Path "$SearchDirectory\hibernate.txt"
 #Hibernates the computer forcefully but gracefully
-.\VoiceControl.ps1
+.\VoiceControl.sp1
 shutdown.exe /h
 }
 
@@ -66,7 +63,7 @@ Remove-Item -Path "$SearchDirectory\louder.txt"
 #Starting volume up
 C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
 C:\Scripts\nircmd\nircmd changesysvolume 6500
-.\VoiceControl.ps1
+.\VoiceControl.sp1
 }
 
 #Volume Down
@@ -76,7 +73,7 @@ Remove-Item -Path "$SearchDirectory\quieter.txt"
 #Starting volume down
 C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
 C:\Scripts\nircmd\nircmd changesysvolume -6500
-.\VoiceControl.ps1
+.\VoiceControl.sp1
 }
 
 #Pause
@@ -97,7 +94,7 @@ C:\Scripts\nircmd\nircmd setdefaultsounddevice "Lautsprecher" 1
 start https://soundcloud.com
 timeout /T 3
 start C:\Scripts\Browser\soundcloud.vbs
-.\VoiceControl.ps1
+.\VoiceControl.sp1
 }
 
 #Soundcloud Next Track
@@ -106,5 +103,5 @@ if ($soundcloud -eq $True) {
 Remove-Item -Path "$SearchDirectory\soundcloud-next.txt"
 #Starts the sc start script
 start C:\Scripts\browser\soundcloud-next.vbs
-.\VoiceControl.ps1
+.\VoiceControl.sp1
 }
