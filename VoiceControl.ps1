@@ -1,4 +1,4 @@
-#Control PC by Voice - V0.3
+#Control PC by Voice - V0.4
 #Will work with Alexa and Google Assistant
 # -------------------------------------------------------------------------------------------
 #CREDITS Go to: Hylke Jellema (https://www.youtube.com/watch?v=gOt1IyEAIxA&feature=youtu.be)
@@ -13,9 +13,11 @@ cd C:\Scripts
 #Declaring Variables
 $SearchDirectory = "C:\Users\fabia\Dropbox\IFTTT"
 $SleepTime = 5
+#Removing old commands, to prevent rebooting on start etc.
+Remove-Item -Path "$SearchDirectory\*.txt"
 
-#Sleep for 30 Seconds before being active (to prevent boot loops if the file for some reason is not deleted)
-Start-Sleep -Seconds 30
+#Sleep for 10 Seconds before being active (to prevent boot loops if the file for some reason is not deleted)
+Start-Sleep -Seconds 10
 
 #Loop checking to see if the file has been created and once it has it continues on. Sleep in the look to prevent CPU pegging
 Do {
