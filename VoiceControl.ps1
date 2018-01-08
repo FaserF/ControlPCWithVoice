@@ -55,7 +55,8 @@ if ($hibernate -eq $True) {
 Remove-Item -Path "$SearchDirectory\hibernate.txt"
 #Hibernates the computer forcefully but gracefully
 .\VoiceControl.sp1
-shutdown.exe /h
+.\psshutdown.exe -d -t 0 -v 0
+#shutdown.exe /h
 }
 
 #Volume Up
