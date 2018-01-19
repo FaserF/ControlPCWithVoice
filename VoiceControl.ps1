@@ -1,4 +1,4 @@
-#Control PC by Voice - V0.4.1
+#Control PC by Voice - V0.4.2
 #Will work with Alexa and Google Assistant
 # -------------------------------------------------------------------------------------------
 #CREDITS Go to: Hylke Jellema (https://www.youtube.com/watch?v=gOt1IyEAIxA&feature=youtu.be)
@@ -55,6 +55,7 @@ if ($hibernate -eq $True) {
 Remove-Item -Path "$SearchDirectory\hibernate.txt"
 #Hibernates the computer forcefully but gracefully
 .\VoiceControl.sp1
+Start-Sleep -Seconds 3
 .\psshutdown.exe -d -t 0 -v 0
 #shutdown.exe /h
 }
