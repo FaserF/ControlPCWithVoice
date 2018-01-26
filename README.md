@@ -1,3 +1,6 @@
+# This project is Obsolete, as http://www.push2run.com/setup.html is doing it better.
+
+
 # Control your PC with you Voice
 ## Works with Alexa (Amazon Echo, Dot) & Google Assistant (Google Home, Mini, Android, iPhone)
 
