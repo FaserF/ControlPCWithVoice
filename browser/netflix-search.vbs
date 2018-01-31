@@ -1,0 +1,31 @@
+set WshShell = WScript.CreateObject("WScript.Shell")
+
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 10
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 100
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 20
