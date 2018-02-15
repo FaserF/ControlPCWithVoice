@@ -1,5 +1,8 @@
-# This project is Obsolete, as http://www.push2run.com/setup.html is doing it better.
+## This project is Obsolete, as http://www.push2run.com/setup.html is doing it better.
+### But you can still use the scripts for push2run!
 
+Example Video:
+https://youtu.be/M35IvIj1RZc
 
 # Control your PC with you Voice
 ## Works with Alexa (Amazon Echo, Dot) & Google Assistant (Google Home, Mini, Android, iPhone)
