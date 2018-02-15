@@ -1,5 +1,8 @@
 #Control PC by Voice - V0.4.2
 #Will work with Alexa and Google Assistant
+
+#This script is obsolete!!! Use push2run now!!! http://www.push2run.com/setup.html
+
 # -------------------------------------------------------------------------------------------
 #CREDITS Go to: Hylke Jellema (https://www.youtube.com/watch?v=gOt1IyEAIxA&feature=youtu.be)
 #Script optimized & new features added by FaserF (https://github.com/FaserF/ControlPCWithVoice)
